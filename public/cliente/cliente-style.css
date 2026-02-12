@@ -1,0 +1,394 @@
+/* ===== CLIENTE / TIENDA – ESTILOS EXCLUSIVOS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2.2rem;
+    align-items: start;
+}
+
+/* ===== COLUMNAS POR CATEGORÍA (4 COLUMNAS) ===== */
+.library-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+}
+
+.col-header {
+    text-align: center;
+    padding: 0.9rem 0.5rem;
+    color: white;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-heading);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.romance { background: linear-gradient(145deg, #b3546b, #9e4259); }
+.comedy { background: linear-gradient(145deg, #da8b45, #c47638); }
+.mystery { background: linear-gradient(145deg, #5d7a8a, #4e6674); }
+.fiction { background: linear-gradient(145deg, #5a6ca3, #4a5b8a); }
+
+/* ===== TARJETAS DE LIBROS ===== */
+.book-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.book-cover {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.book-card:hover .book-cover {
+    box-shadow: var(--shadow-md);
+}
+
+.book-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.3rem;
+    color: var(--color-primary);
+    line-height: 1.3;
+}
+
+.book-author {
+    color: var(--color-text-light);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--color-border);
+    padding-bottom: 0.6rem;
+}
+
+.book-desc {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0.6rem 0;
+    opacity: 0.75;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-success);
+    margin: 0.6rem 0;
+    letter-spacing: -0.5px;
+}
+
+.book-stock {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.book-stock::before {
+    content: "📚";
+    opacity: 0.7;
+}
+
+.book-card .btn-primary {
+    background: var(--color-accent);
+    border: none;
+    border-radius: 50px;
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: var(--transition);
+}
+
+.book-card .btn-primary:hover {
+    background: var(--color-accent-light);
+    transform: scale(1.02);
+}
+
+/* ===== CARRITO DE COMPRAS (ELEGANTE) ===== */
+.cart-sidebar {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 2rem;
+    backdrop-filter: blur(4px);
+}
+
+.cart-sidebar h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+#cartItems {
+    min-height: 120px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-qty {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.btn-qty:hover:not(:disabled) {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+.btn-qty:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.cart-item-subtotal {
+    font-weight: 700;
+    color: var(--color-success);
+    font-size: 1.1rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    color: var(--color-text-light);
+    transition: var(--transition);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    color: var(--color-danger);
+    background: rgba(180, 67, 67, 0.1);
+    transform: scale(1.1);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1.2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-border);
+    font-family: var(--font-heading);
+}
+
+.cart-total span:last-child {
+    color: var(--color-success);
+}
+
+/* ===== MODAL FACTURA (CLIENTE) ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 450px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+}
+
+.factura-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.95rem;
+}
+
+.factura-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-success);
+}
+
+/* ===== RESPONSIVE TIENDA (MEJORADO) ===== */
+@media (max-width: 1024px) {
+    .library-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr 320px;
+        gap: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .library-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .cart-sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+    
+    .col-header {
+        font-size: 1rem;
+        padding: 0.7rem;
+    }
+    
+    .book-card {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-card {
+        padding: 1rem;
+    }
+    
+    .book-cover {
+        height: 180px;
+    }
+    
+    .book-title {
+        font-size: 1.1rem;
+    }
+    
+    .book-price {
+        font-size: 1.2rem;
+    }
+    
+    .cart-sidebar {
+        padding: 1.2rem;
+    }
+    
+    .cart-total {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .book-cover {
+        height: 150px;
+    }
+    
+    .col-header {
+        font-size: 0.9rem;
+    }
+}

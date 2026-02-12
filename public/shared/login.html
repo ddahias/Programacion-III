@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Sistema</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div class="auth-container">
+    <h2 id="authTitle">Bienvenido</h2>
+    <p>Selecciona tu tipo de usuario:</p>
+    <div class="role-selector">
+        <button class="role-btn" id="btnAdmin" onclick="seleccionarRol('admin')">👤 Admin</button>
+        <button class="role-btn" id="btnCliente" onclick="seleccionarRol('usuario')">🛒 Cliente</button>
+    </div>
+
+    <div id="sectionAdmin" class="hidden">
+        <div class="admin-badge">Modo Administrador</div>
+        <form id="loginAdminForm">
+            <input type="email" id="adminEmail" placeholder="Correo electrónico" required>
+            <input type="password" id="adminPass" placeholder="Contraseña" required>
+            <button type="submit" class="btn-admin">Entrar al Panel</button>
+        </form>
+    </div>
+
+    <div id="sectionCliente" class="hidden">
+        <div id="clienteLogin">
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes cuenta? <span class="toggle-link" onclick="mostrarRegistro(true)">Regístrate aquí</span></p>
+        </div>
+        <div id="clienteRegistro" class="hidden">
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="regNombre" placeholder="Nombre" required>
+                    <input type="text" id="regApellido" placeholder="Apellido" required>
+                </div>
+                <input type="email" id="regEmail" placeholder="Correo electrónico" required>
+                <input type="password" id="regPassword" placeholder="Clave segura" required>
+                <button type="submit" class="btn-register">Crear Cuenta</button>
+            </form>
+            <p>¿Ya tienes cuenta? <span class="toggle-link" onclick="mostrarRegistro(false)">Inicia sesión</span></p>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script> <script>
+    function seleccionarRol(rol) {
+        document.getElementById('btnAdmin').classList.toggle('active', rol === 'admin');
+        document.getElementById('btnCliente').classList.toggle('active', rol === 'usuario');
+        document.getElementById('sectionAdmin').classList.toggle('hidden', rol !== 'admin');
+        document.getElementById('sectionCliente').classList.toggle('hidden', rol !== 'usuario');
+        if(rol === 'usuario') mostrarRegistro(false);
+    }
+
+    function mostrarRegistro(show) {
+        document.getElementById('clienteLogin').classList.toggle('hidden', show);
+        document.getElementById('clienteRegistro').classList.toggle('hidden', !show);
+        document.getElementById('authTitle').innerText = show ? 'Registro de Cliente' : 'Acceso Cliente';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        configurarLogin();
+        configurarLoginAdmin();
+        configurarRegistro();
+    });
+</script>
+</body>
+</html>

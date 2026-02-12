@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Fondo con degradado animado */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+}
+
+/* Selector de Roles Moderno */
+.role-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #eee;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.role-btn:hover {
+    border-color: #23a6d5;
+    background: #f0faff;
+}
+
+.role-btn.active {
+    border-color: #e73c7e;
+    background: #fff0f6;
+    color: #e73c7e;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(231, 60, 126, 0.2);
+}
+
+/* Inputs con estilo */
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background: #f9f9f9;
+}
+
+input:focus {
+    outline: none;
+    border-color: #23a6d5;
+    background: white;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botones con degradados */
+.btn-primary, .btn-admin, .btn-register {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: opacity 0.3s, transform 0.2s;
+    font-size: 1em;
+}
+
+.btn-primary { background: linear-gradient(to right, #23a6d5, #23d5ab); }
+.btn-admin { background: linear-gradient(to right, #333, #555); }
+.btn-register { background: linear-gradient(to right, #e73c7e, #ee7752); }
+
+button:active {
+    transform: scale(0.98);
+}
+
+.admin-badge {
+    background: #fff3cd;
+    color: #856404;
+    font-size: 0.75em;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.toggle-link {
+    color: #23a6d5;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}
+
+.hidden { display: none !important; }

@@ -1,0 +1,30 @@
+cat > .gitignore << 'EOF'
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Entorno
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+EOF

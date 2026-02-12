@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Librería - Tienda</title>
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos globales y específicos -->
+    <link rel="stylesheet" href="../shared/css/global.css">
+    <link rel="stylesheet" href="cliente-style.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Mi Librería</h1>
+            <div id="authSection"></div>
+        </header>
+
+        <div class="main-content">
+            <!-- COLUMNAS POR CATEGORÍA (4 COLUMNAS) -->
+            <section>
+                <div class="library-container">
+                    <div>
+                        <h2 class="col-header romance">💖 Romance</h2>
+                        <div id="col-Romance"></div>
+                    </div>
+                    <div>
+                        <h2 class="col-header comedy">😂 Comedia</h2>
+                        <div id="col-Comedia"></div>
+                    </div>
+                    <div>
+                        <h2 class="col-header mystery">🕵️ Misterio</h2>
+                        <div id="col-Misterio"></div>
+                    </div>
+                    <div>
+                        <h2 class="col-header fiction">🌌 Ficción</h2>
+                        <div id="col-Ficcion"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARRITO DE COMPRAS (ELEGANTE) -->
+            <aside class="cart-sidebar">
+                <h2>🛒 Tu Carrito</h2>
+                <div id="cartItems" class="cart-items-container"></div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">0.00</span>
+                </div>
+                <button class="btn btn-accent btn-block" onclick="finalizarPedido()">Comprar Libros</button>
+                <button class="btn btn-danger btn-block mt-2" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </aside>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../shared/js/app.js"></script>
+    <script src="cliente.js"></script>
+</body>
+</html>
