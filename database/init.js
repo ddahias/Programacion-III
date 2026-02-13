@@ -8,29 +8,29 @@ const dbPath = path.resolve(__dirname, 'ecommerce.db');
 // ADMINISTRADOR POR DEFECTO
 const ADMIN_USER = {
     nombre: "Administrador Principal",
-    email: "admin@ecommercegmil.com",
+    email: "admin@ecommercegmail.com",
     password: "admin123",
     nivel: "admin"
 };
 
-// LIBROS INICIALES (solo se insertan si la tabla está vacía)
+// LIBROS INICIALES 
 const librosIniciales = [
     // ROMANCE
-    { nombre: "En agosto nos vemos", autor: "Gabriel García Márquez", precio: 25.00, stock: 10, categoria: "Romance", imagen: "https://images.penguinrandomhouse.com/cover/9780593809618", codigo: "ROM01", desc: "Novela póstuma sobre el deseo femenino." },
-    { nombre: "Baumgartner", autor: "Paul Auster", precio: 22.50, stock: 15, categoria: "Romance", imagen: "https://m.media-amazon.com/images/I/81lJgr7XNRL._AC_UF1000,1000_QL80_.jpg", codigo: "ROM02", desc: "El amor de toda una vida." },
-    { nombre: "El chico de las musarañas", autor: "Aless Lequio", precio: 19.99, stock: 20, categoria: "Romance", imagen: "https://m.media-amazon.com/images/I/71wE-G7+VJL._AC_UF894,1000_QL80_.jpg", codigo: "ROM03", desc: "Amor familiar y juvenil." },
+    { nombre: "En agosto nos vemos", autor: "Gabriel García Márquez", precio: 25.00, stock: 10, categoria: "Romance", imagen: "https://circulocultural.com/wp-content/uploads/2024/03/EN-AGOSTO.jpg", codigo: "ROM01", desc: "Novela póstuma sobre el deseo femenino." },
+    { nombre: "Baumgartner", autor: "Paul Auster", precio: 22.50, stock: 15, categoria: "Romance", imagen: "https://havela.me/wp-content/uploads/2024/04/img_9863.jpg?w=729", codigo: "ROM02", desc: "El amor de toda una vida." },
+    { nombre: "Antes de Diciembre", autor: "Joana Marcus", precio: 19.99, stock: 20, categoria: "Romance", imagen: "https://i.pinimg.com/1200x/72/04/12/720412b9fe0fd47e50a22280cd47294f.jpg", codigo: "ROM03", desc: "Amor juvenil." },
     // COMEDIA
-    { nombre: "El problema de la paz", autor: "Arturo Pérez-Reverte", precio: 24.00, stock: 12, categoria: "Comedia", imagen: "https://imagessl9.casadellibro.com/a/l/t7/49/9788420476449.jpg", codigo: "COM01", desc: "Sátira y diálogos ácidos." },
-    { nombre: "Maldito Hamor", autor: "Cruz de Yerba", precio: 18.50, stock: 18, categoria: "Comedia", imagen: "https://m.media-amazon.com/images/I/61k1T+X-CLL._AC_UF894,1000_QL80_.jpg", codigo: "COM02", desc: "Parodia divertida sobre redes sociales." },
-    { nombre: "A ver qué pasa", autor: "Lucía Galán", precio: 16.00, stock: 25, categoria: "Comedia", imagen: "https://imagessl0.casadellibro.com/a/l/t7/90/9788408282790.jpg", codigo: "COM03", desc: "Humor cotidiano y optimismo." },
+    { nombre: "La Guardaespalda", autor: "Katherine Center ", precio: 24.00, stock: 12, categoria: "Comedia", imagen: "https://www.penguinlibros.com/es/3064940-large_default/la-guardaespaldas.jpg", codigo: "COM01", desc: "Falsa relación, guardaespaldas protege actor a un famoso.." },
+    { nombre: "Buenos Presagios", autor: "Terry Pratchett y Neil Gaiman", precio: 18.50, stock: 18, categoria: "Comedia", imagen: "https://images.cdn2.buscalibre.com/fit-in/360x360/af/bb/afbbb5749cc3e2b6eb097a1e7cb56b94.jpg", codigo: "COM02", desc: "el nacimiento del hijo de Satanás y la llegada del Fin de los Tiempos." },
+    { nombre: "El Misterio del Tiempo", autor: "Kaliane Bradley", precio: 21.60, stock: 25, categoria: "Comedia", imagen: "https://i.pinimg.com/736x/58/32/8d/58328dab77cbb1178a37e112c76158d9.jpg", codigo: "COM03", desc: "Explorador victoriano descubre el mundo moderno." },
     // MISTERIO
-    { nombre: "La ciudad y sus muros", autor: "Haruki Murakami", precio: 28.00, stock: 8, categoria: "Misterio", imagen: "https://imagessl1.casadellibro.com/a/l/t7/11/9788419803011.jpg", codigo: "MIS01", desc: "El misterio más vendido del 2024." },
-    { nombre: "Las garras del águila", autor: "Karin Smirnoff", precio: 26.50, stock: 10, categoria: "Misterio", imagen: "https://imagessl6.casadellibro.com/a/l/t7/56/9788423363856.jpg", codigo: "MIS02", desc: "Continuación de la saga Millennium." },
-    { nombre: "El abismo del olvido", autor: "Paco Roca", precio: 21.00, stock: 14, categoria: "Misterio", imagen: "https://imagessl6.casadellibro.com/a/l/t7/46/9788410023446.jpg", codigo: "MIS03", desc: "Misterio histórico magistral." },
+    { nombre: "El Jardin de las Mariposas", autor: "Dot Hutchison", precio: 28.00, stock: 8, categoria: "Misterio", imagen: "https://i.pinimg.com/1200x/77/56/8e/77568e2d0bd2d6b392da500bf4db1324.jpg", codigo: "MIS01", desc: "Siniestro thriller sobre secuestro y belleza." },
+    { nombre: "El hombre de tiza", autor: "C.J. Tudor", precio: 26.50, stock: 10, categoria: "Misterio", imagen: "https://i.pinimg.com/736x/38/62/f6/3862f6d05202187db667d80da29aeb7b.jpg", codigo: "MIS02", desc: "Pasado oscuro vuelve mediante dibujos macabros." },
+    { nombre: "El abismo del olvido", autor: "Paco Roca", precio: 21.00, stock: 14, categoria: "Misterio", imagen: "https://i.pinimg.com/1200x/18/63/51/18635121a9f513b4d836744d7bd6ba54.jpg", codigo: "MIS03", desc: "Misterio histórico magistral." },
     // FICCION
-    { nombre: "La distancia que nos separa", autor: "Renato Cisneros", precio: 23.00, stock: 11, categoria: "Ficcion", imagen: "https://imagessl8.casadellibro.com/a/l/t7/28/9788408173428.jpg", codigo: "FIC01", desc: "Ficción sobre secretos familiares." },
-    { nombre: "Tres enigmas", autor: "Eduardo Mendoza", precio: 20.00, stock: 16, categoria: "Ficcion", imagen: "https://imagessl5.casadellibro.com/a/l/t7/55/9788432243255.jpg", codigo: "FIC02", desc: "Detectives y calidad literaria." },
-    { nombre: "Metamorfosis (Ed. 2024)", autor: "Franz Kafka", precio: 30.00, stock: 5, categoria: "Ficcion", imagen: "https://imagessl9.casadellibro.com/a/l/t7/59/9788411001859.jpg", codigo: "FIC03", desc: "Edición especial ilustrada de lujo." }
+    { nombre: "La distancia que nos separa", autor: "Renato Cisneros", precio: 23.00, stock: 11, categoria: "Ficcion", imagen: "https://www.planetadelibros.com/usuaris/libros/fotos/232/original/portada_la-distancia-que-nos-separa_renato-cisneros_201610261623.jpg", codigo: "FIC01", desc: "Ficción sobre secretos familiares." },
+    { nombre: "Tres enigmas", autor: "Eduardo Mendoza", precio: 20.00, stock: 16, categoria: "Ficcion", imagen: "https://uepmallorca.app/wp-content/uploads/2024/01/tres-enigmas-1.webp", codigo: "FIC02", desc: "Agentes secretos ineptos resuelven crímenes absurdos." },
+    { nombre: "El inestable mundo de Alroy", autor: "Pau de la Calle.", precio: 30.00, stock: 5, categoria: "Ficcion", imagen: "https://i.pinimg.com/736x/74/32/f3/7432f38234029d965103d0b15b049f16.jpg", codigo: "FIC03", desc: "Fantasía épica sobre miedos y superación." }
 ];
 
 async function inicializarBaseDeDatos() {
@@ -51,7 +51,7 @@ async function inicializarBaseDeDatos() {
             )
         `);
 
-        // 3. Tabla de productos (libros)
+        // 3. Tabla de productos
         await db.runAsync(`
             CREATE TABLE IF NOT EXISTS products (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
