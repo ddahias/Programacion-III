@@ -33,19 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 function abrirModalProducto() {
     const modal = document.getElementById('productoModal');
-    if (modal) modal.style.display = 'flex';
+     modal.style.display = 'flex';
 }
 
 function cerrarModalProducto() {
     const modal = document.getElementById('productoModal');
-    if (modal) modal.style.display = 'none';
-    const form = document.getElementById('productoForm');
-    if (form) form.reset();
+    modal.style.display = 'none';
+    
 }
 
-// ============================================
 //  CRUD DE PRODUCTOS
-// ============================================
 async function guardarProducto(e) {
     e.preventDefault();
 
